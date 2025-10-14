@@ -1,0 +1,7 @@
+streamlit
+matplotlib
+pandas
+stripe
+paypalrestsdk
+python-dotenv
+jsonschema
