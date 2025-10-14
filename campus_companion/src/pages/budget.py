@@ -2,7 +2,7 @@ import streamlit as st
 import uuid
 import json
 import os
-import matplotlib.pyplot as plt
+
 from utils.persistence import save_data, load_data
 from config import FILES, DATA_DIR
 

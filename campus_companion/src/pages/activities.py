@@ -4,7 +4,7 @@ import json
 import os
 import datetime
 from utils.persistence import save_data, load_data
-from config import FILES, DATA_DIR
+from config import FILES
 
 # ----------------------------
 # 🌟 Activities Page
