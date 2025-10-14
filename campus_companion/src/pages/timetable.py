@@ -3,6 +3,7 @@ import datetime
 import uuid
 import json
 import os
+from config import FILES, DATA_DIR
 
 # Filepath for data storage
 DATA_DIR = "data"
