@@ -4,7 +4,7 @@ import json
 import os
 
 from utils.persistence import save_data, load_data
-from config import FILES, DATA_DIR
+
 
 DATA_DIR = "data"
 if not os.path.exists(DATA_DIR):
