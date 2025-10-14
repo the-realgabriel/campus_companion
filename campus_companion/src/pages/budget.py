@@ -2,7 +2,9 @@ import streamlit as st
 import uuid
 import json
 import os
-from ..utils.persistence import save_data, load_data
+import matplotlib.pyplot as plt
+from utils.persistence import save_data, load_data
+from config import FILES, DATA_DIR
 
 DATA_DIR = "data"
 if not os.path.exists(DATA_DIR):
@@ -13,7 +15,7 @@ FILES = {
 }
 
 if "budget_store" not in st.session_state:
-    st.session_state.budget_store = load_data(FILES["budget"], {"incomes": [], "budgets": [], "expenses": []})
+    st.session_state.budget_store = load_data(FILES["budget"], {"incomes": [], "budgets": [], "expenses": [], "payments": []})
 
 def budget_page():
     st.title("💰 Budget Tracker")
@@ -59,7 +61,13 @@ def budget_page():
             color = st.color_picker("Color tag", value="#ffccbc")
             submit = st.form_submit_button("➕ Add Expense")
             if submit and name and amt:
-                st.session_state.budget_store.setdefault("expenses", []).append({"id": str(uuid.uuid4()), "expense": name, "amount": float(amt), "color": color})
+                st.session_state.budget_store.setdefault("expenses", []).append({
+                    "id": str(uuid.uuid4()),
+                    "expense": name,
+                    "amount": float(amt),
+                    "color": color,
+                    "paid": False
+                })
                 save_data(FILES["budget"], st.session_state.budget_store)
                 st.success(f"Logged expense: {name} — ₦{amt:,.2f}")
 

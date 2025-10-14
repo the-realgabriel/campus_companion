@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt 
 import datetime
 
 def home_page():
