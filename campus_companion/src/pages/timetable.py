@@ -4,8 +4,6 @@ import uuid
 import json
 import os
 
-
-
 # Filepath for data storage
 DATA_DIR = "data"
 if not os.path.exists(DATA_DIR):
